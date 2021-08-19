@@ -22,5 +22,7 @@ jobs:
     steps:
        - name: Print expressions
          run: |
-          echo  $addition
+          echo  ${{TEST}}
+         env:
+           TEST: ${{ 2 + 2}} 
       
