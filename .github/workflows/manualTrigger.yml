@@ -1,0 +1,14 @@
+name: Repository_Dispatch
+
+on:
+ repository_dispatch:
+   types: [Set_Environment_Variables]
+ push:
+
+jobs:
+  one:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Payload
+        run: echo ${{github.event.client_payload.env}}
+
