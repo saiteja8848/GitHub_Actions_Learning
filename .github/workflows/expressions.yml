@@ -20,9 +20,11 @@ jobs:
   Testing:
     runs-on: ubuntu-latest
     steps:
-       - name: Print expressions
-         run: |
-          echo  ${{TEST}}
-         env:
-           TEST: ${{ 2 + 2}} 
+       - name: Evaluate function expressions
+         run : |
+              echo ${{contains('hello','ll')}}
+              echo ${{startsWith('hello','he')}}
+              echo ${{endsWith('hello','lo')}}
+              echo ${{format('Hello {0} {1} {2}', 'World' , '!', '!')}}
+              echo ${{ 4 + 4 }}
       
