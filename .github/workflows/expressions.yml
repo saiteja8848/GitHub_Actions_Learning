@@ -5,7 +5,7 @@ on:
 
 
 env:
-  addition : $ {{2+2}}
+  addition : ${{2+2}}
   myNull: ${{ null }}
   myBoolean: ${{ false }}
   myIntegerNumber: ${{ 711 }}
