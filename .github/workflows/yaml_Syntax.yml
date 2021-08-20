@@ -3,6 +3,8 @@
 # age : 24
 # address: "Tenali"
 # active: true
+
+
 # key :
 #     key1: value1
 #     key2: value2
@@ -12,10 +14,14 @@
 
 # jsonObject: {key: value, key2: value, key3: {key1: value1, key2: value2 }}
 
+
+
 # array:
 #      - item1
 #      - item2
 #      - { key: value}
+
+
 
 # jsobArray: [item1, item2]
 
@@ -23,6 +29,8 @@
 #         -key: value 
 #         -key2: value
 #         -key3: value3
+
+
 
 # longText1: > 
 #           lorem ipsum  
