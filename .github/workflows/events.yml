@@ -1,23 +1,18 @@
+# https://crontab.guru/#*_*_*_*_*
 name: Events_and_Activity_Types
 
-#Events
-# on: [push, pull_request]
+# Events
+on: [push, pull_request]
+
 
 # on:
-#   push:
+#  pull_request:
+#    types:
+#       - opened
+#       - closed
 #    branches:
-#       - master
-#       - main
-
-
-on:
- pull_request:
-   types:
-      - opened
-      - closed
-   branches:
-       - main
-       - master
+#        - main
+#        - master
 
 # on:
 #   schedule:
