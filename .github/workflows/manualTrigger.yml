@@ -5,7 +5,6 @@ name: Repository_Dispatch
 on:
  repository_dispatch:
    types: [Set_Environment_Variables]
- push:
 
 jobs:
   one:
