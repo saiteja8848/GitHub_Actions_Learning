@@ -1,0 +1,36 @@
+# name: xyz
+
+# age : 24
+# address: "Tenali"
+# active: true
+# key :
+#     key1: value1
+#     key2: value2
+#     key3:
+#         key1: value1
+#         key2: value2
+
+# jsonObject: {key: value, key2: value, key3: {key1: value1, key2: value2 }}
+
+# array:
+#      - item1
+#      - item2
+#      - { key: value}
+
+# jsobArray: [item1, item2]
+
+# objectsArray:
+#         -key: value 
+#         -key2: value
+#         -key3: value3
+
+# longText1: > 
+#           lorem ipsum  
+#           lorem ipsumlorem 
+#           ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
+
+# longText2: | 
+#           lorem ipsum  
+#           lorem ipsumlorem 
+#           ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
+
