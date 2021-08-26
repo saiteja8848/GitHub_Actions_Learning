@@ -19,7 +19,8 @@ jobs:
        runs-on: windows-2019
        needs: job1
        steps:
-         - run : echo ${{needs.job1.outputs.outputs1}} ${{needs.job1.outputs.outputs2}}
+         - run : |
+              echo ${{needs.job1.outputs.outputs1}}
 
            
 #      sample-job2:
