@@ -8,6 +8,17 @@ env:
     PUBLICENV: Available for all jobs in this workflow
 
 jobs:
+ 
+    Bash-Checking:
+       runs-on: windows-latest
+       steps:
+         - name: Print
+           run: | 
+               pwd
+               git --version
+           shell: bash   
+       
+       
     WorkFlow_Level_Variables:
         runs-on: ubuntu-latest
         steps:
