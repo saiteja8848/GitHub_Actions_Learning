@@ -9,7 +9,11 @@ jobs:
       steps:
       - name: Ubuntu GitHub Actions environment variables List
         run: env
-                  
+      
+      - name: Print Run No
+        run : |
+           echo $env.GITHUB_RUN_NUMBER
+           
 #      sample-job2:
 #       runs-on: windows-2019
 #       steps:
