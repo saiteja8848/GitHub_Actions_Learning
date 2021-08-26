@@ -9,6 +9,8 @@ jobs:
             - name: echo-default-env-variables
               run: |
                   echo "Home: ${HOME}"
+                  echo "GITHUB_RUN_NUMBER: ${GITHUB_RUN_NUMBER}"
+                  echo "GITHUB_RUN_ID: ${GITHUB_RUN_ID}"
                   echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
                   echo "GITHUB_ACTIONS: ${GITHUB_ACTIONS}"
                   echo "GITHUB_ACTOR: ${GITHUB_ACTOR}"
