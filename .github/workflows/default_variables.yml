@@ -2,8 +2,6 @@ name: default-environment-variables
 
 on: [push]
 
-env: 
-  RUN: ${{GITHUB_RUN_NUMBER}}
 
 jobs:
      github-actions-environment-variables-windows:
