@@ -29,8 +29,9 @@ jobs:
       runs-on: windows-2019
       steps:
         - name: echo-default-env-variables
+          shell: cmd
           run: |
-              echo "GITHUB_RUN_NUMBER:" ${env:GITHUB_RUN_NUMBER}
+              echo "GITHUB_RUN_NUMBER:" %env:GITHUB_RUN_NUMBER%
                   
                   
                   
