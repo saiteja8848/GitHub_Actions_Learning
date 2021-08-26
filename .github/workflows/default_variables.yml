@@ -13,10 +13,10 @@ jobs:
       - name: Print Run No
         shell: cmd
         run : |
-           echo ${{env.GITHUB_RUN_NUMBER}}
+           echo ${{GITHUB_RUN_NUMBER}}
            echo ${{Env.GITHUB_RUN_NUMBER}}
            echo "${{env.GITHUB_RUN_NUMBER}}"
-           echo echo ${env.GITHUB_RUN_NUMBER}
+           echo  ${GITHUB_RUN_NUMBER}
            
 #      sample-job2:
 #       runs-on: windows-2019
