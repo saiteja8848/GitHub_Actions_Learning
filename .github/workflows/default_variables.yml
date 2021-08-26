@@ -6,13 +6,11 @@ env:
   RUN: ${{GITHUB_RUN_NUMBER}}
 
 jobs:
-     sample-job1:
-        runs-on: windows-2019
-        steps:
-            - name: echo-default-env-variables
-              shell: cmd
-              run: |
-                   env
+     github-actions-environment-variables-windows:
+      runs-on: windows-2019
+      steps:
+      - name: Ubuntu GitHub Actions environment variables List
+        run: env
                   
 #      sample-job2:
 #       runs-on: windows-2019
