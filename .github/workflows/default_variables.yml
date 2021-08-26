@@ -4,35 +4,34 @@ on: [push]
 
 
 jobs:
-   job1:
-       runs-on: ubuntu-latest
-       outputs:
-         output1 : ${{steps.step1.outputs.test}}
-         output2 : ${{steps.step2.outputs.test}}
-       steps:
-         - id: step1
-           run: echo "::set-output name=test::hello" 
-         - id: step2 
-           run: echo "::set-output name=test::world" 
+#    job1:
+#        runs-on: ubuntu-latest
+#        outputs:
+#          output1 : ${{steps.step1.outputs.test}}
+#          output2 : ${{steps.step2.outputs.test}}
+#        steps:
+#          - id: step1
+#            run: echo "::set-output name=test::hello" 
+#          - id: step2 
+#            run: echo "::set-output name=test::world" 
           
-   job2:        
-       runs-on: windows-2019
-       needs: job1
-       steps:
-         - run : |
-              echo on
-              echo ${{needs.job1.outputs.outputs1}}
-           shell: cmd
+#    job2:        
+#        runs-on: windows-2019
+#        needs: job1
+#        steps:
+#          - run : |
+#               echo on
+#               echo ${{needs.job1.outputs.outputs1}}
+#            shell: cmd
 
            
-#      sample-job2:
-#       runs-on: windows-2019
-#       steps:
-#         - name: echo-default-env-variables
-#           shell: cmd
-#           run: |
-#               echo "GITHUB_RUN_NUMBER:" $GITHUB_RUN_NUMBER
-#                   echo ${{RUN}}             
+     sample-job2:
+      runs-on: windows-2019
+      steps:
+        - name: echo-default-env-variables
+          run: |
+              echo "GITHUB_RUN_NUMBER:" ${env:GITHUB_RUN_NUMBER}
+                  
                   
                   
                   
