@@ -2,6 +2,9 @@ name: default-environment-variables
 
 on: [push]
 
+env: 
+  RUN: $GITHUB_RUN_NUMBER
+
 jobs:
      sample-job1:
         runs-on: windows-2019
@@ -9,7 +12,8 @@ jobs:
             - name: echo-default-env-variables
               shell: cmd
               run: |
-                  echo "GITHUB_RUN_NUMBER: $GITHUB_RUN_NUMBER"
+                  echo "GITHUB_RUN_NUMBER:" $GITHUB_RUN_NUMBER
+                  echo ${{RUN}}
 #      sample-job:
 #         runs-on: ubuntu-latest
 #         steps:
