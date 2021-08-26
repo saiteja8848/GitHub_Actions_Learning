@@ -4,20 +4,22 @@ on: [push]
 
 
 jobs:
-  version_job:
-         runs-on: ubuntu-latest
-         steps:
-         - name: Create version number
-           id: version_step
-           run: echo "::set-output name=version_number::1.2.3"
+   job1:
+       runs-on: ubuntu-latest
+       outputs:
+         output1 : ${{steps.step1.outputs.test}}
+         output2 : ${{steps.step2.outputs.test}}
+       steps:
+         - id: step1
+           run: echo "::set-output name=test::hello" 
+         - id: step2 
+           run: echo "::set-output name=test::world" 
           
-
-  output:
-        needs: version_job
-        runs-on: windows-2019
-        steps:
-          - name: Output
-            run: echo "${{ jobs.version_job.steps.version_step.outputs.version_number }}"
+   job2:        
+       runs-on: windows-2019
+       needs: job1
+       steps:
+         - run : echo ${{needs.job1.outputs.outputs1}} ${{needs.job1.outputs.outputs2}}
 
            
 #      sample-job2:
