@@ -3,7 +3,7 @@ name: default-environment-variables
 on: [push]
 
 env: 
-  RUN: $GITHUB_RUN_NUMBER
+  RUN: ${{GITHUB_RUN_NUMBER}}
 
 jobs:
      sample-job1:
