@@ -9,7 +9,7 @@ jobs:
             - name: echo-default-env-variables
               shell: cmd
               run: |
-                  echo "GITHUB_RUN_NUMBER: ${GITHUB_RUN_NUMBER}"
+                  echo "GITHUB_RUN_NUMBER: $GITHUB_RUN_NUMBER"
 #      sample-job:
 #         runs-on: ubuntu-latest
 #         steps:
