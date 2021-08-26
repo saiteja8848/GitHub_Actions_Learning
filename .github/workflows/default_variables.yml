@@ -8,8 +8,9 @@ jobs:
          runs-on: ubuntu-latest
          steps:
          - name: Create version number
-           run: echo "::set-output name=version_number::1.2.3"
            id: version_step
+           run: echo "::set-output name=version_number::1.2.3"
+          
 
   output:
         needs: version_job
