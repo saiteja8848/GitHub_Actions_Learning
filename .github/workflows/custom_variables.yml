@@ -10,7 +10,7 @@ env:
 jobs:
  
     Bash-Checking:
-       runs-on: windows-latest
+       runs-on: windows-2019
        steps:
          - name: Print
            run: | 
