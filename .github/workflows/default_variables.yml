@@ -11,7 +11,7 @@ jobs:
         run: env
       
       - name: Print Run No
-        shell: pwsh
+        shell: cmd
         run : |
            echo ${{env.GITHUB_RUN_NUMBER}}
            echo ${{Env.GITHUB_RUN_NUMBER}}
