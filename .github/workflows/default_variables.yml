@@ -4,19 +4,20 @@ on: [push]
 
 
 jobs:
-     github-actions-environment-variables-windows:
-      runs-on: windows-2019
-      steps:
-      - name: Ubuntu GitHub Actions environment variables List
-        run: env
-      
-      - name: Print Run No
-        shell: cmd
-        run : |
-           echo ${{GITHUB_RUN_NUMBER}}
-           echo ${{Env.GITHUB_RUN_NUMBER}}
-           echo "${{env.GITHUB_RUN_NUMBER}}"
-           echo  ${GITHUB_RUN_NUMBER}
+  version_job:
+         runs-on: ubuntu-latest
+         steps:
+         - name: Create version number
+           run: echo "::set-output name=version_number::1.2.3"
+           id: version_step
+
+  output:
+        needs: version_job
+        runs-on: windows-2019
+        steps:
+          - name: Output
+            run: echo "${{ jobs.version_job.steps.version_step.outputs.version_number }}"
+
            
 #      sample-job2:
 #       runs-on: windows-2019
