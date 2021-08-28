@@ -20,7 +20,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: echo-default-env-variables
-              run: |
+              run: | 
+                  echo "GITHUB_RUN_URL :"https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
                   echo "Home: ${HOME}"
                   echo "GITHUB_RUN_NUMBER: ${GITHUB_RUN_NUMBER}"
                   echo "GITHUB_RUN_ID: ${GITHUB_RUN_ID}"
