@@ -1,0 +1,19 @@
+name: Load and Read Environmental Variables
+
+
+on:
+ workflow_dispatch:
+   
+
+jobs:
+   
+    Testing-Actions:
+        runs-on: ubuntu-latest
+        steps:
+          - uses : actions/checkout@v2
+          - uses : ./.github/actions/variables
+            id: hello 
+          - run : |
+               echo "Time: ${{steps.hello.outputs.time}}"
+          
+            
