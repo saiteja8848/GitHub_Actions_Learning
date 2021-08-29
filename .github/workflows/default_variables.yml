@@ -12,6 +12,7 @@ jobs:
           run: |
               env
               echo "GITHUB_RUN_NUMBER:" %GITHUB_RUN_NUMBER%
+              echo "hhhhh:" %GITHUB_ACTION_PATH%
                   
                   
                   
