@@ -4,6 +4,12 @@ description: build.properties.groovy converted to github actions
 outputs:
    time:
     description: "Testing"
+   variables:
+    description: "Environmental Variables"
 runs:
     using: "node12"
     main: "dist/index.js"   
+
+
+
+    
