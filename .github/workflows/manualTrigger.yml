@@ -4,12 +4,12 @@ name: Repository_Dispatch
 
 on:
  repository_dispatch:
-   types: [Set_Environment_Variables]
+   types: [build]
 
 jobs:
   one:
     runs-on: ubuntu-latest
     steps:
       - name: Print Payload
-        run: echo ${{github.event.client_payload.env}}
+        run: echo "Hello World"
 
