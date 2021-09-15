@@ -1,0 +1,20 @@
+name: Testing
+
+on:
+ push:
+   
+
+jobs:
+  one:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read value from Properties-file
+        id: read_property
+        uses: christian-draeger/read-properties@1.0.1
+        with:
+         path: 'application.properties'
+         property: 'name'
+         
+      - name: Do something with your bumped release version
+        run: echo ${{ steps.read_property.outputs.value }}
+        
