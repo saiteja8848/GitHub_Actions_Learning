@@ -1,4 +1,14 @@
 # https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event
+# Make an api call to trigger this workflow
+# https://api.github.com/repos/saiteja8848/GitHub_Actions_Learning/dispatches
+
+  #  Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+  #   Accept: `application/vnd.github.v3+json`,
+  #   Content-Type: `application/json`,
+  #   {'event_type': 'build' }
+
+# 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
+
 
 name: Repository_Dispatch
 
