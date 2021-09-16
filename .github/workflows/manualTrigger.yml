@@ -23,5 +23,5 @@ jobs:
       - name: Print Payload
         env:
           STRATEGY_CONTEXT: ${{ toJSON(github.event.client_payload) }}
-        run: echo "$STRATEGY_CONTEXT"
+        run: echo "$STRATEGY_CONTEXT.buildId"
  
