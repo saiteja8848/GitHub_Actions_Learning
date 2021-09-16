@@ -21,4 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Payload
-        run: echo ${{ toJSON(github.event.client_payload)}}
+        env:
+          STRATEGY_CONTEXT: ${{ toJSON(github.event.client_payload) }}
+        run: echo "$STRATEGY_CONTEXT"
+ 
