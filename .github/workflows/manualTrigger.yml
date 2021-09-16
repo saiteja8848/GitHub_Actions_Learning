@@ -5,7 +5,7 @@
   #  Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
   #   Accept: `application/vnd.github.v3+json`,
   #   Content-Type: `application/json`,
-  #   {'event_type': 'build' }
+  #   {'event_type': 'build' , "client_payload": {"env":{"buildId":"wuglibs"}}}
 
 # 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
 
@@ -21,5 +21,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Payload
-        run: echo "Hello World"
-
+        run: echo ${{github.event.client_payload}}
