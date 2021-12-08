@@ -1,0 +1,16 @@
+name: custom-environment-variables
+
+on: [push]
+
+
+
+jobs:
+ 
+    ExecutePowershellScript:
+       runs-on: windows-2019
+       steps:
+         - name: run
+           shell:pwsh
+           run: >
+               
+               write-host "hello"
