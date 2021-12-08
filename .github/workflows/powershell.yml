@@ -10,7 +10,6 @@ jobs:
        runs-on: windows-2019
        steps:
          - name: run
-           shell:pwsh
+           shell: powershell
            run: >
-               
                write-host "hello"
