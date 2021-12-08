@@ -15,7 +15,7 @@ jobs:
               Function Test($param){
                  write-host $param;
               };
-              Test $env:param;
+              Test $env:GITHUB_WORKSPACE;
            env:
              param: "hello"
               
