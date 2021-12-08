@@ -1,4 +1,4 @@
-name: custom-environment-variables
+name: Powershell-scripts
 
 on: [push]
 
