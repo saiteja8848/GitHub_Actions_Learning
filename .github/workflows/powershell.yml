@@ -19,5 +19,5 @@ jobs:
               Test $env:PATH_ConstantsFile;
            env:
              param: "hello"
-             PATH_ConstantsFile: "$ENV:GITHUB_WORKSPACE\\Script Files\\Constants.h"
+             PATH_ConstantsFile: "${{github.workspace}}\\Script Files\\Constants.h"
               
