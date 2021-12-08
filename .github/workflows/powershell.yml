@@ -12,4 +12,10 @@ jobs:
          - name: run
            shell: powershell
            run: >
-               write-host "hello"
+              Function Test($param){
+                 write-host $param;
+              };
+              Test $env:param;
+           env:
+             param: "hello"
+              
