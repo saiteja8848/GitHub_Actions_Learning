@@ -16,7 +16,8 @@ jobs:
                  write-host $param;
                  write-host $param;
               };
-              Test $env:GITHUB_WORKSPACE;
+              Test $env:PATH_ConstantsFile;
            env:
              param: "hello"
+             PATH_ConstantsFile: "${{GITHUB_WORKSPACE}}\\Script Files\\Constants.h"
               
