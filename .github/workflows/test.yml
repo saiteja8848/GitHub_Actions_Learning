@@ -1,23 +1,29 @@
 name: my pipeline
 
 on:
-    workflow_dispatch:
-        inputs:  
-            device:
-                description: '[1] iPhone, [2] Samsung Galaxy'
-                required: true
-                default: '1'
+    push:
+       
 
 jobs:
-  test:
-    runs-on: windows-2019
-    steps:
-        - name: Set device
-          id: setDevice
-          run: |
-            if [[ "${{ github.event.inputs.device }}" == "1" ]]; then
-                echo "::set-output name=deviceString::iPhone"
-            fi
-            if [[ "${{ github.event.inputs.device }}" == "2" ]]; then
-                echo "::set-output name=deviceString::Samsung Galaxy"
-            fi
+    job1:
+      runs-on: ubuntu-latest
+
+      outputs:
+        output1: ${{ steps.step1.outputs.test }}
+        output2: ${{ steps.step2.outputs.test }}
+
+      steps:
+        - id: step1
+          run: echo "::set-output name=test::hello"
+
+        - id: step2
+          run: echo "::set-output name=test::world"
+
+        - name: Display
+          run: echo "${{ steps.step1.outputs.test }}"
+
+    job2:
+      runs-on: windows-2019
+      needs: job1
+      steps:
+        - run: echo ${{ needs.job1.outputs.output1 }} ${{ needs.job1.outputs.output2 }}
