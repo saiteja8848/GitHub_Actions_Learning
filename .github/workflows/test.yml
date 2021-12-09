@@ -1,28 +1,38 @@
-name: my pipeline
+name: Example - Share output between jobs
 
 on:
-    push:
+  push:
+
 env:
-  REL: daily
+  RELEASETYPE: daily
+
 
 jobs:
-    job1:
-      runs-on: windows-2019
-
-      outputs:
-        releaseSuffix: ${{ steps.step1.outputs.RELEASESUFFIX }}
-   
-      steps:
-        - id: step1
-          shell: cmd
-          run: |  
-              echo %REL% 
-               if %REL% == 'daily' (echo "::set-output name=RELEASESUFFIX::Daily")
-               if %REL% == 'beta'(echo "::set-output name=RELEASESUFFIX::Beta")
-             
-
-    job2:
-      runs-on: windows-2019
-      needs: job1
-      steps:
-        - run: echo ${{ needs.job1.outputs.releaseSuffix }} 
+  produce:
+    runs-on: windows-2019
+    outputs:
+      myValue: ${{ steps.exposeValue.outputs.myvalue }}
+    steps:
+      - name: Create value as an environment variable
+        if: env.RELEASETYPE == 'daily'
+        run: |
+          echo "MY_VALUE='MYVALUE1'" >> $GITHUB_ENV
+        
+      - name: Create value as an environment variable
+        if: env.RELEASETYPE == 'beta'
+        run: |
+          echo "MY_VALUE='MYVALUE2'" >> $GITHUB_ENV
+          
+          
+      - name: Expose value 
+        id: exposeValue
+        run: |
+          echo "::set-output name=myvalue::${{ env.MY_VALUE }}"
+            
+  consume:
+    runs-on: windows-2019
+    needs: produce 
+    steps:
+      - name: Use value
+        run: |
+          echo "${{ needs.produce.outputs.myvalue }}"
