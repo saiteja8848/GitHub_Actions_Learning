@@ -17,6 +17,8 @@ jobs:
           shell: cmd
           run: |  
               echo %REL% 
+               if %REL% == 'daily' (echo "::set-output name=RELEASESUFFIX::Daily")
+               if %REL% == 'beta'(echo "::set-output name=RELEASESUFFIX::Beta")
              
 
     job2:
