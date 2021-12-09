@@ -16,12 +16,8 @@ jobs:
         - id: step1
           shell: cmd
           run: |  
-              if %REL% == 'daily' (
-                 echo "::set-output name=RELEASESUFFIX::Daily"
-              )
-              if %REL% == 'beta'(
-                echo "::set-output name=RELEASESUFFIX::Beta"
-              )
+              echo %REL% 
+             
 
     job2:
       runs-on: windows-2019
