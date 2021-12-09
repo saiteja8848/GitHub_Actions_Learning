@@ -18,8 +18,10 @@ jobs:
     steps:
      
       - name: Create value as an environment variable
+        shell: cmd
         run: |
           echo "MY_VALUE='MYVALUE'" >> $GITHUB_ENV
+          
       - name: Expose value 
         id: exposeValue
         run: |
@@ -34,6 +36,7 @@ jobs:
     steps:
       
       - name: Use value
+        shell: cmd
         run: |
           echo "${{ needs.produce.outputs.myvalue }}"
  
