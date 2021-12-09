@@ -10,13 +10,13 @@ env:
 jobs:
   produce:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     
     outputs:
       myValue: ${{ steps.exposeValue.outputs.myvalue }}
 
     steps:
-      - uses: actions/checkout@v1
+     
       - name: Create value as an environment variable
         run: |
           echo "MY_VALUE='MYVALUE'" >> $GITHUB_ENV
@@ -27,12 +27,12 @@ jobs:
             
   consume:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
 
     needs: produce
     
     steps:
-      - uses: actions/checkout@v1
+      
       - name: Use value
         run: |
           echo "${{ needs.produce.outputs.myvalue }}"
