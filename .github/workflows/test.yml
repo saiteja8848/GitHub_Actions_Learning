@@ -1,29 +1,23 @@
-name: Test
+name: my pipeline
 
-on: [push]
-
-env:
-  RELEASETYPE: daily
-
+on:
+    workflow_dispatch:
+        inputs:  
+            device:
+                description: '[1] iPhone, [2] Samsung Galaxy'
+                required: true
+                default: '1'
 
 jobs:
-  SetupEnvironmentVariables:
+  test:
     runs-on: windows-2019
     steps:
-      - name: Run tests
-        id : variables
-        shell: cmd
-        run: |
-          echo %RELEASETYPE%
-          echo "::set-output name=BuildDescription::''"
-          echo "::set-output name=MARKETINGVERSION::Rocket.0.0"
-          echo "::set-output name=RELEASESUFFIX::Daily"
-          echo "::set-output name=FNCServerURL::http://atlflexera01.servers.ipswitch.com"
-          echo "::set-output name=FNCVersion::${PRODUCT_VERSION}_${RELEASESUFFIX}"
-          echo "::set-output name=OUTPUTEXENAME::${PROJECT_NAME}-${RELEASESUFFIX}.exe"
-         
-  
-
-
-  
-      
+        - name: Set device
+          id: setDevice
+          run: |
+            if [[ "${{ github.event.inputs.device }}" == "1" ]]; then
+                echo "::set-output name=deviceString::iPhone"
+            fi
+            if [[ "${{ github.event.inputs.device }}" == "2" ]]; then
+                echo "::set-output name=deviceString::Samsung Galaxy"
+            fi
