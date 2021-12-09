@@ -2,6 +2,8 @@ name: Test
 
 on: [push]
 
+env:
+ RELEASETYPE: 'daily'
 
 
 jobs:
@@ -42,3 +44,11 @@ jobs:
           echo "::set-output name=FNCVersion::${PRODUCT_VERSION}_${RELEASESUFFIX}"
           echo "::set-output name=OUTPUTEXENAME::${PROJECT_NAME}-${RELEASESUFFIX}.exe"
         id: er
+  
+  Print:
+    runs-on: windows-2019
+    steps:
+      - name: Run tests
+        run: |
+          echo "${{ env.RELEASENUMBER }}"
+      
