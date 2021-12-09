@@ -2,28 +2,27 @@ name: my pipeline
 
 on:
     push:
-       
+env:
+  REL: daily
 
 jobs:
     job1:
-      runs-on: ubuntu-latest
+      runs-on: windows-2019
 
       outputs:
-        output1: ${{ steps.step1.outputs.test }}
-        output2: ${{ steps.step2.outputs.test }}
-
+        releaseSuffix: ${{ steps.step1.outputs.RELEASESUFFIX }}
+   
       steps:
         - id: step1
-          run: echo "::set-output name=test::hello"
-
-        - id: step2
-          run: echo "::set-output name=test::world"
-
-        - name: Display
-          run: echo "${{ steps.step1.outputs.test }}"
+          shell: cmd
+          run: |  
+              if %REL% == 'daily'
+              echo "::set-output name=RELEASESUFFIX::Daily"
+              if %REL% == 'beta'
+              echo "::set-output name=RELEASESUFFIX::Beta"
 
     job2:
       runs-on: windows-2019
       needs: job1
       steps:
-        - run: echo ${{ needs.job1.outputs.output1 }} ${{ needs.job1.outputs.output2 }}
+        - run: echo ${{ needs.job1.outputs.releaseSuffix }} 
