@@ -11,12 +11,13 @@ jobs:
     runs-on: windows-2019
     steps:
       - name: Run tests
+        shell: cmd
         env: 
           RELEASETYPE : 'daily'
         run: |
-          if ${RELEASETYPE} == daily; then
+          if ${RELEASETYPE} == 'daily'; then
             echo "flag=daily" >> GITHUB_ENV
-          else if ${RELEASETYPE} == beta; then
+          else if ${RELEASETYPE} == 'beta'; then
             echo "flag=beta" >> GITHUB_ENV 
           else
             echo "flag=er" >> GITHUB_ENV 
