@@ -1,0 +1,44 @@
+name: Test
+
+on: [push]
+
+
+
+jobs:
+ 
+  SetupEnvironmentVariables:
+    runs-on: windows-2019
+    steps:
+      - name: Run tests
+        if: env.RELEASETYPE == 'daily'
+        run: |
+          echo "daily"
+          echo "::set-output name=BuildDescription::''"
+          echo "::set-output name=MARKETINGVERSION::Rocket.0.0"
+          echo "::set-output name=RELEASESUFFIX::Daily"
+          echo "::set-output name=FNCServerURL::http://atlflexera01.servers.ipswitch.com"
+          echo "::set-output name=FNCVersion::${PRODUCT_VERSION}_${RELEASESUFFIX}"
+          echo "::set-output name=OUTPUTEXENAME::${PROJECT_NAME}-${RELEASESUFFIX}.exe"
+        id: daily
+
+      - name: Run tests
+        if: env.RELEASETYPE == 'beta'
+        run: |
+          echo "::set-output name=BuildDescription::''"
+          echo "::set-output name=RELEASENUMBER::1"
+          echo "::set-output name=RELEASESUFFIX::Beta${RELEASENUMBER}"
+          echo "::set-output name=FNCServerURL::http://atlflexera01.servers.ipswitch.com"
+          echo "::set-output name=FNCVersion::${PRODUCT_VERSION}_${RELEASESUFFIX}"
+          echo "::set-output name=OUTPUTEXENAME::${PROJECT_NAME}-${RELEASESUFFIX}.exe"
+        id: beta
+
+      - name: Run tests
+        if: env.RELEASETYPE == 'er'
+        run: |
+          echo "::set-output name=BuildDescription::''"
+          echo "::set-output name=RELEASENUMBER::1" 
+          echo "::set-output name=RELEASESUFFIX::Release${RELEASENUMBER}"
+          echo "::set-output name=FNCServerURL::http://atlflexera01.servers.ipswitch.com"
+          echo "::set-output name=FNCVersion::${PRODUCT_VERSION}_${RELEASESUFFIX}"
+          echo "::set-output name=OUTPUTEXENAME::${PROJECT_NAME}-${RELEASESUFFIX}.exe"
+        id: er
