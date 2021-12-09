@@ -39,4 +39,4 @@ jobs:
       - name: Use value
         shell: cmd
         run: |
-          echo "${{ needs.produce.outputs.myvalue }}"
+          echo "${{ needs.produce.outputs.myValue }}"
