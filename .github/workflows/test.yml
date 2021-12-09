@@ -11,8 +11,10 @@ jobs:
     runs-on: windows-2019
     steps:
       - name: Run tests
+        shell: cmd
         run: |
           echo env.RELEASETYPE
+          echo %RELEASETYPE%
           echo "::set-output name=BuildDescription::''"
           echo "::set-output name=MARKETINGVERSION::Rocket.0.0"
           echo "::set-output name=RELEASESUFFIX::Daily"
