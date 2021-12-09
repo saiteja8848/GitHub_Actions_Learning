@@ -4,7 +4,7 @@ on:
   push:
 
 env:
-  RELEASETYPE: daily
+  RELEASETYPE: 'daily'
 
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
         run: |
           echo "MY_VALUE='MYVALUE1'" >> $GITHUB_ENV
         
-      - name: Create value as an environment variable
+      - name: Create
         if: env.RELEASETYPE == 'beta'
         run: |
           echo "MY_VALUE='MYVALUE2'" >> $GITHUB_ENV
