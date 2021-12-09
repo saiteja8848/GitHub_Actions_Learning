@@ -6,25 +6,22 @@ on: [push]
 
 
 jobs:
- 
   SetupEnvironmentVariables:
     runs-on: windows-2019
     steps:
       - name: Run tests
-        shell: cmd
-        env: 
-          RELEASETYPE : 'daily'
         run: |
-          if %RELEASETYPE% == 'daily'; then
-            echo "flag=daily" >> GITHUB_ENV
-          else if %RELEASETYPE% == 'beta'; then
-            echo "flag=beta" >> GITHUB_ENV 
-          else
-            echo "flag=er" >> GITHUB_ENV 
-          fi 
+          echo env.RELEASETYPE
+          echo "daily"
+          echo "::set-output name=BuildDescription::''"
+          echo "::set-output name=MARKETINGVERSION::Rocket.0.0"
+          echo "::set-output name=RELEASESUFFIX::Daily"
+          echo "::set-output name=FNCServerURL::http://atlflexera01.servers.ipswitch.com"
+          echo "::set-output name=FNCVersion::${PRODUCT_VERSION}_${RELEASESUFFIX}"
+          echo "::set-output name=OUTPUTEXENAME::${PROJECT_NAME}-${RELEASESUFFIX}.exe"
+         
   
-      - name: Print
-        run: echo env.flag
+
 
   
       
