@@ -11,9 +11,9 @@ jobs:
     runs-on: windows-2019
     steps:
       - name: Run tests
+        id : variables
         shell: cmd
         run: |
-          echo env.RELEASETYPE
           echo %RELEASETYPE%
           echo "::set-output name=BuildDescription::''"
           echo "::set-output name=MARKETINGVERSION::Rocket.0.0"
