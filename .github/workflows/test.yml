@@ -15,17 +15,20 @@ jobs:
     steps:
       - name: Create value as an environment variable
         if: env.RELEASETYPE == 'daily'
+        shell: cmd
         run: |
           echo "MY_VALUE='MYVALUE1'" >> $GITHUB_ENV
         
       - name: Create
         if: env.RELEASETYPE == 'beta'
+        shell: cmd
         run: |
           echo "MY_VALUE='MYVALUE2'" >> $GITHUB_ENV
           
           
       - name: Expose value 
         id: exposeValue
+        shell: cmd
         run: |
           echo "::set-output name=myvalue::${{ env.MY_VALUE }}"
             
@@ -34,5 +37,6 @@ jobs:
     needs: produce 
     steps:
       - name: Use value
+        shell: cmd
         run: |
           echo "${{ needs.produce.outputs.myvalue }}"
