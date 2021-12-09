@@ -2,7 +2,8 @@ name: Test
 
 on: [push]
 
-
+env:
+  RELEASETYPE: daily
 
 
 jobs:
@@ -12,7 +13,6 @@ jobs:
       - name: Run tests
         run: |
           echo env.RELEASETYPE
-          echo "daily"
           echo "::set-output name=BuildDescription::''"
           echo "::set-output name=MARKETINGVERSION::Rocket.0.0"
           echo "::set-output name=RELEASESUFFIX::Daily"
