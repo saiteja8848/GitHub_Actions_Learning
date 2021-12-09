@@ -47,6 +47,7 @@ jobs:
   
   Print:
     runs-on: windows-2019
+    needs: SetupEnvironmentVariables
     steps:
       - name: Run tests
         run: |
