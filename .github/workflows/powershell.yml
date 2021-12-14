@@ -16,9 +16,9 @@ jobs:
                  write-host $param;
                  write-host $param;
               };
-              Test $env:RUN-NUMBER;
+              Test $env:RUN_NUMBER;
            env:
              param: ${{github.sha}}
-             RUN-NUMBER: ${{github.run_number}}
+             RUN_NUMBER: ${{github.run_number}}
              PATH_ConstantsFile: "${{github.workspace}}\\Script Files\\Constants.h"
               
