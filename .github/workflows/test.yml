@@ -1,4 +1,4 @@
-name: Example - Share output between jobs
+name: Example - Share output between jobs Testing
 
 on:
   push:
